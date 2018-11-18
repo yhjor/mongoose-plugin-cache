@@ -1,0 +1,37 @@
+{
+  "name": "mongoose-plugin-cache",
+  "version": "1.0.0",
+  "description": "The Perfect Marriage of MongoDB and Redis",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:yhjor/mongoose-plugin-cache.git",
+  "author": "George Jor <yhjor@me.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "test": "DEBUG=Mongoose:plugin:cache jest --coverage"
+  },
+  "dependencies": {
+    "debug": "^4.1.0",
+    "lodash.keyby": "^4.6.0",
+    "pluralize": "^7.0.0",
+    "@types/mongoose": "^5.2.19",
+    "mongoose": "^5.3.6",
+    "typescript": "^3.1.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.7",
+    "@types/redis": "^2.8.7",
+    "bluebird": "^3.5.2",
+    "jest": "^23.6.0",
+    "mongodb": "^3.1.9",
+    "mongodb-memory-server": "^2.6.0",
+    "prettier": "^1.14.3",
+    "redis": "^2.8.0",
+    "redis-mock": "^0.33.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0"
+  }
+}
