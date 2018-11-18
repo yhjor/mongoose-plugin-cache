@@ -1,6 +1,6 @@
 {
   "name": "mongoose-plugin-cache",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Perfect Marriage of MongoDB and Redis",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
