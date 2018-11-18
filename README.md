@@ -2,6 +2,8 @@
 
 Boost your MongoDB performance using Redis
 
+[![Build Status](https://travis-ci.org/yhjor/mongoose-plugin-cache.svg?branch=master)](https://travis-ci.org/yhjor/mongoose-plugin-cache)
+
 ## Why mongoose-plugin-cache?
 
 - Performance: Resolve data 300% faster in each operation can significantly enhance the overall User Experience
