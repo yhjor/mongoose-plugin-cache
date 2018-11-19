@@ -36,7 +36,9 @@ const schema = new mongoose.Schema({
 schema.plugin(
   createCachePlugin({
     redis, // provide your own node-redis instance
-    enable: true, // it will not hit Redis if you disable it
+    // it will use Redis only if you enable it (default: false)
+    // , and you may only want to enable for the model with high frequency database access
+    enable: true,
   }),
 )
 
@@ -142,8 +144,12 @@ schema.plugin(
 ```typescript
 import Dataloader from 'dataloader'
 const userLoader = new DataLoader(ids => User.getMany(ids))
+```
 
-userLoader.load('<userId>')
+And call it with:
+
+```typescript
+await userLoader.load('<userId>')
 ```
 
 With GraphQL's field resolver, you don't even have to use Mongoose's `.populate()` with better Separation of Concern.
@@ -184,7 +190,7 @@ yarn test
 
 ## Contributing
 
-Please read CONTRIBUTING.md for details, and feel free to submit pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/yhjor/mongoose-plugin-cache/blob/master/CONTRIBUTING.md) for details, and feel free to submit pull requests to us.
 
 ## Related Projects
 
@@ -193,17 +199,3 @@ Please read CONTRIBUTING.md for details, and feel free to submit pull requests t
 - [mongoose-cache](https://github.com/Gottox/mongoose-cache)
 - [mongoose-cachebox](https://github.com/cayasso/mongoose-cachebox)
 - [mongoose-cache-manager](https://github.com/englercj/mongoose-cache-manager)
-
-## TODO
-
-- [ ] Add Travis CI, Up to date, and Test Coverage with Github Badges
-- [ ] Code of Conduct https://opensource.guide/code-of-conduct/
-- [ ] Issue Template https://blog.github.com/2016-02-17-issue-and-pull-request-templates/
-- [ ] CONTRIBUTING.md
-- [ ] Automatically add an index for every additionalCacheKeys
-- [ ] Maintain a additionalCacheKeys mapping to the actual ID to reduce the overall cache size
-- [ ] Allow adding custom methods to resolve an additional field
-- [ ] Ability to add TTL in general usage and specific usage
-- [ ] Customization of caching strategy like LRU
-- [ ] Test Coverage, from 95% to 100%
-- [ ] An `examples` folder for any potential use cases
