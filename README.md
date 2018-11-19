@@ -1,19 +1,18 @@
 # mongoose-plugin-cache
 
-Boost your MongoDB performance using Redis
+Seamlessly boost your MongoDB performance with Redis
 
 [![Build Status](https://travis-ci.org/yhjor/mongoose-plugin-cache.svg?branch=master)](https://travis-ci.org/yhjor/mongoose-plugin-cache)
 
 ## Why mongoose-plugin-cache?
 
-- Performance: Resolve data 300% faster in each operation can significantly enhance the overall User Experience
+- Performance: Significantly enhance the overall User Experience by resolving the data from memory.
 - Efficiency: Cache with peace of mind. It handles the cache synchronization with Mongoose `create`, `findByIdAndUpdate`, `findOneAndUpdate`, `findByIdAndDelete` and `findOneAndDelete` hooks, so you don't have to.
-- Flexible: Support resolving any additional/custom field efficiently (Coming Soon)
+- Flexible: Enable only the model you want to cache as well as specifying the additional cache keys to resolve.
 
-## Prerequisite
+##
 
-- Mongoose 5: One of the biggest updates from Mongoose 4 to 5 is the synchronous and stability of hook, which helps us get the data in sync after an update
-- node_redis: Keep all your preferences like cache prefix, caching strategy, and global promise to be used
+> Prerequisite: Mongoose 5. One of the biggest updates from Mongoose 4 to 5 is the synchronous and stability of hook, which helps get the data in sync easily.
 
 ## Installation
 
@@ -35,9 +34,11 @@ const schema = new mongoose.Schema({
 
 schema.plugin(
   createCachePlugin({
-    redis, // provide your own node-redis instance
-    // it will use Redis only if you enable it (default: false)
-    // , and you may only want to enable for the model with high frequency database access
+    // your own node_redis instance
+    // keep all your preferences like cache prefix, caching strategy, and global promise to be used
+    redis,
+    // it will use Redis only if you enable it (default: false),
+    // and you may only want to enable for the model with high frequency database access
     enable: true,
   }),
 )
@@ -49,7 +50,7 @@ const User = mongoose.model('User', schema)
 
 ### Resolving from Cache
 
-It first tries to resolve the value from the cache by a given ID. If it hits the cache, the value will be returned directly from Redis, `onCacheMiss` will be called. If it does not hit the cache, it will resolve the data from the database and set it into Redis. If there is no such data, `onDataMiss` hook will be called.
+It first tries to resolve the value from the cache by a given ID. If it hits the cache, the value will be returned directly from Redis. If it does not hit the cache, it will resolve the data from the database and set it into Redis, `onCacheMiss` will be called. If there is no such data, `onDataMiss` hook will be called.
 
 With Mongoose only, we normally do:
 
@@ -188,14 +189,14 @@ We can resolve the actual User using GraphQL field resolver with the combination
 yarn test
 ```
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://github.com/yhjor/mongoose-plugin-cache/blob/master/CONTRIBUTING.md) for details, and feel free to submit pull requests to us.
-
 ## Related Projects
 
-- [mongoose-redis-cache](https://github.com/conancat/mongoose-redis-cache): This project has not been actively maintained since 2014
+- [mongoose-redis-cache](https://github.com/conancat/mongoose-redis-cache): Not actively maintained since 2014.
 - [Cachegoose](https://github.com/boblauer/cachegoose)
 - [mongoose-cache](https://github.com/Gottox/mongoose-cache)
 - [mongoose-cachebox](https://github.com/cayasso/mongoose-cachebox)
 - [mongoose-cache-manager](https://github.com/englercj/mongoose-cache-manager)
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://github.com/yhjor/mongoose-plugin-cache/blob/master/CONTRIBUTING.md) for details, and feel free to submit pull requests to us.
