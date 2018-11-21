@@ -7,7 +7,5 @@ services:
   - redis-server
 script:
   - yarn test
-scripts:
-  - npm install codecov -g
 after_success:
   - codecov
