@@ -3,12 +3,13 @@
 Seamlessly boost your MongoDB performance with Redis
 
 [![Build Status](https://travis-ci.org/yhjor/mongoose-plugin-cache.svg?branch=master)](https://travis-ci.org/yhjor/mongoose-plugin-cache)
+[![codecov](https://codecov.io/gh/yhjor/mongoose-plugin-cache/branch/master/graph/badge.svg)](https://codecov.io/gh/yhjor/mongoose-plugin-cache)
 
 ## Why mongoose-plugin-cache?
 
-- Performance: Significantly enhance the overall User Experience by resolving the data from memory.
-- Efficiency: Cache with peace of mind. It handles the cache synchronization with Mongoose `create`, `findByIdAndUpdate`, `findOneAndUpdate`, `findByIdAndDelete` and `findOneAndDelete` hooks, so you don't have to.
-- Flexible: Enable only the model you want to cache as well as specifying the additional cache keys to resolve.
+- **Performance**: Significantly enhance the overall User Experience by resolving the data from memory.
+- **Efficiency**: Cache with peace of mind. It handles the cache synchronization with Mongoose `create`, `findByIdAndUpdate`, `findOneAndUpdate`, `findByIdAndDelete` and `findOneAndDelete` hooks, so you don't have to.
+- **Flexible**: Enable only the model you want to cache as well as specifying the additional cache keys to resolve.
 
 ##
 

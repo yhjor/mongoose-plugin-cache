@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc",
-    "test": "DEBUG=Mongoose:plugin:cache jest --coverage && codecov"
+    "test": "DEBUG=Mongoose:plugin:cache jest --coverage"
   },
   "dependencies": {
     "@types/mongoose": "^5.2.19",
