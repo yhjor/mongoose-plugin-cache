@@ -26,6 +26,10 @@ const createCachePlugin = ({
   }
 
   const onSave = async doc => {
+    if (!enable) {
+      return
+    }
+
     debug('onSave', doc)
     const model = doc.constructor
 
@@ -42,6 +46,10 @@ const createCachePlugin = ({
   }
 
   const onRemove = async doc => {
+    if (!enable) {
+      return
+    }
+
     debug('onRemove', doc)
 
     if (!doc) {
